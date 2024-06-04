@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Security Dashboard - Admin</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="assets/css/app.min.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/bundles/morris/morris.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      
+      <div class="main-sidebar sidebar-style-2" style="color: transparent;">
+        <aside id="sidebar-wrapper">
+          
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              
+              <figure class="avatar mr-2 bg-primary text-white" data-initial="User" style="margin-left: 15px; margin-top: 60px;"></figure>
+
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name"></div>
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+        
+        </aside>
+      </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title m-b-0" style="font-size: 32px; margin-bottom: 20px;">Security Summary Dashboard</h4>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="info-box7-block">
+                    <h6 class="m-b-20 text-left">Devices Overview</h6>
+                    <h4 class="text-center" style="font-size: 37px;"></i><span>68</span>
+                    </h4>
+                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-green m-r-5"></i><span
+                        class="text-success font-weight-bold">6</span> New Added &nbsp;&nbsp;
+                        <i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
+                          class="text-danger font-weight-bold">3</span> Offline</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="info-box7-block">
+                    <h6 class="m-b-20 text-left">Total Alarms</h6>
+                    <h4 class="text-center" style="font-size: 37px;"></i><span>326</span>
+                    </h4>
+                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
+                        class="text-danger font-weight-bold">12</span> compared to previous month</p>
+                        
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="info-box7-block">
+                    <h6 class="m-b-20 text-left">Total CyberThreats</h6>
+                    <h4 class="text-center" style="font-size: 37px;"></i><span>39</span>
+                    </h4>
+                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-blue m-r-5"></i><span
+                        class="text-warning font-weight-bold">7</span> Ongoing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="info-box7-block">
+                    <h6 class="m-b-20 text-left">Total Attacks</h6>
+                    <h4 class="text-center" style="font-size: 37px;"></i><span>17</span>
+                    </h4>
+                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
+                        class="text-danger font-weight-bold">1</span> Detected</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+         
+          
+          </div>
+
+          <div class="row">
+            <div class="col-xl-5 col-md-6 col-lg-8">
+            <div class="card">
+              <div class="card-header">
+                <h4>DeviceTypes</h4>
+              </div>
+              <div class="card-body">
+                <div>
+                  <div id="amchart1" style="height: 300px; padding-right: 0px;"></div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+            <div class="col-5 col-sm-6 col-lg-7">
+            <div class="card">
+              <div class="card-header">
+                <h4>Alarms Summary</h4>
+                <div class="card-header-action">
+                  <a href="#summary-chart" data-tab="summary-tab" class="btn active">All</a>
+                  <a href="#summary-text" data-tab="summary-tab" class="btn">Ongoing</a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="summary">
+                  <div class="summary-info" data-tab-group="summary-tab" id="summary-text" style="height: 290px;">
+                    <h4>2 Alarms</h4>
+                    <div class="text-muted" style="margin-bottom: 20px;">Today</div>
+                        <div class="alert alert-warning alert-has-icon">
+                          <div class="alert-icon"><i class="far fa-bell"></i></div>
+                          <div class="alert-body text-left">
+                            <div class="alert-title">Smoke Alarm</div>
+                            Buiding D Room 21
+                          </div>
+
+                          <button class="close" data-dismiss="alert">
+                            <div class="alert-icon" style="margin-right:28px; margin-bottom:15px;"><i class="fa fa-phone"></i></div>
+                          </button>
+                       
+                        </div>
+                        <div class="alert alert-secondary alert-has-icon">
+                          <div class="alert-icon"><i class="far fa-bell"></i></div>
+                          <div class="alert-body text-left">
+                            <div class="alert-title">Water Leakage</div>
+                            Buiding C Room 03
+                          </div>
+                          
+                          <button class="close" data-dismiss="alert">
+                            <span style="color: #2b3057; font-size: 18px; font-weight: lighter; margin-right:16px;">Solved</span>
+                          </button>
+                        
+                        </div>
+                      
+                    </div>
+
+                  <div class="summary-chart active" data-tab-group="summary-tab" id="summary-chart">
+                    <ul class="list-inline text-center m-b-0">
+                      <li class="list-inline-item p-r-30">
+                        <h5 class="m-b-0">165</h5>
+                        <p class="text-muted font-14 m-b-0">Smoke Alarms</p>
+                      </li>
+                      <li class="list-inline-item p-r-30">
+                        <h5 class="m-b-0">187</h5>
+                        <p class="text-muted font-14 m-b-0">WaterLeakage Alarms</p>
+                      </li>
+                    </ul>
+                    <div id="revenue"></div>
+                  </div>
+               
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+       
+          <div class="row">
+
+
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="card" style="margin-bottom: 10px;">
+                <div class="card-header">
+                  <h4>Security Alerts</h4>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-md">
+                      <tr>
+                        
+                        <th style="width: 250px;"></th>
+                        <th style="width: 500px;">Location</th>
+                        <th style="width: 600px;">Alerts</th>
+                        <th style="width: 300px;">Status</th>
+                     
+                       
+                      </tr>
+                      <tr>
+                        
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #ff92ae;"></i>
+                        </td>
+
+                        <td>Room21</td>
+                        <td style="width: 200px;">Detectify Device011</td>
+                        <td>
+                          <div class="badge bg-dark" style="color: #fff; margin-left:3px;">Invalid private key</div>
+                        </td>
+                       
+                      </tr>
+                     
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #9FA2B4E5;"></i>
+                        </td>
+                        <td>Room02</td>
+                        <td>Detectify Device031</td>
+                        <td>
+                          <div class="badge badge-light" style="margin-left:3px;">Overusage</div>
+                        </td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x"></i>
+                        </td>
+                        <td>Room01</td>
+                        <td>Detectify Device0a1</td>
+                        <td>
+                          <div class="badge badge-warning" style="margin-left:3px;">Off Contract</div>
+                        </td>
+                      
+                      </tr>
+
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #ff92ae;"></i>
+                        </td>
+                        <td>Room032</td>
+                        <td>LeakDevice107</td>
+                        <td>
+                          <div class="badge bg-dark" style="color: #fff; margin-left:3px;">Invalid private key</div>
+                        </td>
+                       
+                      </tr>
+                          <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #ff92ae;"></i>
+                        </td>
+                        <td>Room032</td>
+                        <td>LeakDevice107</td>
+                        <td>
+                          <div class="badge bg-dark" style="color: #fff; margin-left:3px;">Invalid private key</div>
+                        </td>
+                       
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #9FA2B4E5;"></i>
+                        </td>
+                        <td>Roomb1</td>
+                        <td>Detectify Device031</td>
+                        <td>
+                          <div class="badge badge-light" style="margin-left:3px;">Offline</div>
+                        </td>
+                       
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #9FA2B4E5;"></i>
+                        </td>
+                        <td>Room2a</td>
+                        <td>Detectify Deviceb01</td>
+                       
+                        <td>
+                          <div class="badge badge-light" style="margin-left:3px;">Out of message sequence</div>
+                        </td>
+                    
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x"></i>
+                        </td>
+                        <td style="width: 200px;">Backend Services</td>
+                        <td>Malicious Event</td>
+                       
+                        <td>
+                          <div class="badge badge-warning" style="margin-left:3px;">Low Risk</div>
+                        </td>
+                      
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #ff92ae;"></i>
+                        </td>
+                        <td style="width: 200px;">Alert Gateway</td>
+                        <td>Malicious Event</td>
+                       
+                        <td>
+                          <div class="badge bg-dark" style="color: #fff; margin-left:3px;">High Risk</div>
+                        </td>
+                      
+                      
+                      </tr>
+                         <tr>
+                        <td><i class="fas fa-exclamation-triangle fa-2x" style="color: #9FA2B4E5;"></i>
+                        </td>
+                        <td>Room02</td>
+                        <td>Detectify Device031</td>
+                        <td>
+                          <div class="badge badge-light" style="margin-left:3px;">Overusage</div>
+                        </td>
+                       
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+          
+        
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Total Threats and Attacks</h4>
+                </div>
+                <div class="card-body">
+                  
+                    <canvas id="myChart2" height="180"></canvas>
+                   
+                   
+                  <h4 style="margin-bottom: 20px; margin-top:20px; font-size:18px;">Top Attack Types</h4>
+      
+                  <div style="margin-top: 12px; margin-bottom: 10px;">
+                    <div class="text-small float-right font-weight-bold text-muted">69%</div>
+                    <div class="font-weight-bold mb-1">Malware Injection</div>
+                    <div class="progress" data-height="4" data-toggle="tooltip" title="62">
+                      <div class="progress-bar bg-dark" data-width="62%"></div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 12px; margin-bottom: 10px;">
+                    <div class="text-small float-right font-weight-bold text-muted">58%</div>
+                    <div class="font-weight-bold mb-1">DDos/DoS</div>
+                    <div class="progress" data-height="4" data-toggle="tooltip" title="59">
+                      <div class="progress-bar bg-primary" data-width="59%"></div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 12px; margin-bottom: 10px;">
+                    <div class="text-small float-right font-weight-bold text-muted">52%</div>
+                    <div class="font-weight-bold mb-1">Ransomware</div>
+                    <div class="progress" data-height="4" data-toggle="tooltip" title="52">
+                      <div class="progress-bar bg-info" data-width="52%"></div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 12px; margin-bottom: 10px;">
+                    <div class="text-small float-right font-weight-bold text-muted">37%</div>
+                    <div class="font-weight-bold mb-1">Supply Attack</div>
+                    <div class="progress" data-height="4" data-toggle="tooltip" title="42">
+                      <div class="progress-bar bg-warning" data-width="42%"></div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+
+           
+          </div>
+
+        </section>
+      
+      </div>
+     
+    </div> 
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/bundles/amcharts4/core.js"></script>
+  <script src="assets/bundles/amcharts4/charts.js"></script>
+  <script src="assets/bundles/amcharts4/animated.js"></script>
+  <script src="assets/bundles/jquery.sparkline.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/index.js"></script>
+  <!-- JS Libraies -->
+  <script src="assets/bundles/morris/morris.min.js"></script>
+  <script src="assets/bundles/morris/raphael-min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/chart-morris.js"></script>
+  <script src="assets/bundles/chartjs/chart.min.js"></script>
+  <!-- Page Specific JS File -->
+  
+  <script src="assets/bundles/echart/echarts.js"></script>
+  <script src="assets/js/page/widget-chart.js"></script>
+
+  <!-- Template JS File -->
+
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <script>
+
+
+const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
+    
+    ws.onopen = function() {
+      //alert("Connection open ..."); 
+      ws.send('{"request": "GET_SENSORS"}');
+
+      ws.onmessage = function(e) {
+        var obj = JSON.parse(e.data);
+        //var obj = JSON.parse(e.data).msgContent.sensors[0].device_id;
+        console.log(obj)
+      }
+
+    };
+
+</script>
+</body>
+
+</html>

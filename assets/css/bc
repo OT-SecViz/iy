@@ -1,0 +1,309 @@
+"use strict";
+
+$(function () {
+    chart1();
+    chart2();
+    chart3();
+
+    var sparkline_values = [10, 7, 4, 8, 5, 8, 6, 5, 2, 4, 7, 4, 9, 6, 5, 9];
+    var sparkline_values_chart = [2, 6, 4, 8, 3, 5, 2, 7];
+    var sparkline_values_bar = [10, 7, 4, 8, 5, 8, 6, 5, 2, 4, 7, 4, 9, 10, 7, 4, 8, 5, 8, 6, 5, 2, 4, 7, 4, 9, 8, 6, 5, 2, 4, 7, 4, 9, 10, 2, 4, 7, 4, 9, 7, 4, 8, 5, 8, 6, 5];
+    $(".sparkline-bar").sparkline(sparkline_values_bar, {
+        type: "bar",
+        width: "100%",
+        height: "100",
+        barColor: "white",
+        barWidth: 2
+    });
+
+    $('.sparkline-inline').sparkline(sparkline_values, {
+        type: 'line',
+        width: '100%',
+        height: '100',
+        lineWidth: 1,
+        lineColor: 'white',
+        fillColor: 'rgba(87,75,144,.25)',
+        highlightSpotColor: "rgba(63,82,227,.1)",
+        highlightLineColor: "rgba(63,82,227,.1)",
+        spotRadius: 3,
+    });
+    if ($("#activity-scroll").length) {
+        $("#activity-scroll")
+            .css({
+                height: 400
+            })
+            .niceScroll();
+    }
+
+    if ($("#support-scroll").length) {
+        $("#support-scroll")
+            .css({
+                height: 400
+            })
+            .niceScroll();
+    }
+    if ($("#project-team-scroll").length) {
+        $("#project-team-scroll")
+            .css({
+                height: 400
+            })
+            .niceScroll();
+    }
+
+});
+
+
+
+function chart1() {
+    var options = {
+        chart: {
+            height: 240,
+            type: "line",
+            zoom: {
+                enabled: !1
+            }
+            ,
+            toolbar: {
+                show: !1
+            }
+        }
+        ,
+        dataLabels: {
+            enabled: !1
+        }
+        ,
+        stroke: {
+            width: 3, curve: "smooth", dashArray: [0, 8]
+        }
+        ,
+        series: [{
+            name: "Smoke", data: [15, 48, 36, 20, 40, 60, 35, 20, 16, 31, 22, 11]
+        }
+            ,
+        {
+            name: "Water Leakage", type: "area", data: [8, 22, 60, 35, 17, 24, 48, 37, 56, 22, 32, 38]
+        }
+        ],
+        colors: ["#FF92AE",
+            "#5560b4"],
+        //      colors: ["#3dc7be", "#ffa117"],
+        fill: {
+            opacity: [1, .15]
+        }
+        ,
+        markers: {
+            size: 0,
+            hover: {
+                sizeOffset: 6
+            }
+        }
+        ,
+        xaxis: {
+            categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: {
+                style: {
+                    colors: '#8e8da4',
+                }
+            },
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    color: '#8e8da4',
+                }
+            }
+        },
+        grid: {
+            borderColor: "#f1f1f1"
+        }
+    }
+
+        ;
+
+    var chart = new ApexCharts(document.querySelector("#revenue"), options);
+
+    chart.render();
+}
+
+function chart2() {
+    am4core.useTheme(am4themes_animated);
+
+    // Create chart instance
+    var chart = am4core.create("amchart1", am4charts.XYChart);
+
+
+    // Add data
+    chart.data = [{
+        "x": 1,
+        "ay": 6.5,
+        "by": 2.2,
+        "aValue": 15,
+        "bValue": 10
+    }, {
+        "x": 2,
+        "ay": 12.3,
+        "by": 4.9,
+        "aValue": 8,
+        "bValue": 3
+    }, {
+        "x": 3,
+        "ay": 12.3,
+        "by": 5.1,
+        "aValue": 16,
+        "bValue": 4
+    }, {
+        "x": 5,
+        "ay": 2.9,
+        "aValue": 9
+    }, {
+        "x": 7,
+        "by": 8.3,
+        "bValue": 13
+    }, {
+        "x": 10,
+        "ay": 2.8,
+        "by": 13.3,
+        "aValue": 9,
+        "bValue": 13
+    }, {
+        "x": 12,
+        "ay": 3.5,
+        "by": 6.1,
+        "aValue": 5,
+        "bValue": 2
+    }, {
+        "x": 13,
+        "ay": 5.1,
+        "aValue": 10
+    }, {
+        "x": 15,
+        "ay": 6.7,
+        "by": 10.5,
+        "aValue": 3,
+        "bValue": 10
+    }, {
+        "x": 16,
+        "ay": 8,
+        "by": 12.3,
+        "aValue": 5,
+        "bValue": 13
+    }, {
+        "x": 20,
+        "by": 4.5,
+        "bValue": 11
+    }, {
+        "x": 22,
+        "ay": 9.7,
+        "by": 15,
+        "aValue": 15,
+        "bValue": 10
+    }, {
+        "x": 23,
+        "ay": 10.4,
+        "by": 10.8,
+        "aValue": 1,
+        "bValue": 11
+    }, {
+        "x": 24,
+        "ay": 1.7,
+        "by": 19,
+        "aValue": 12,
+        "bValue": 3
+    }];
+
+    // Create axes
+    var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
+    xAxis.renderer.minGridDistance = 40;
+    xAxis.renderer.labels.template.fill = am4core.color("#8e8da4");
+
+    // Create value axis
+    var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    yAxis.renderer.labels.template.fill = am4core.color("#8e8da4");
+
+    // Create series
+    var series1 = chart.series.push(new am4charts.LineSeries());
+    series1.dataFields.valueX = "x";
+    series1.dataFields.valueY = "ay";
+    series1.dataFields.value = "aValue";
+    series1.strokeWidth = 2;
+
+    var bullet1 = series1.bullets.push(new am4charts.CircleBullet());
+    series1.heatRules.push({
+        target: bullet1.circle,
+        min: 5,
+        max: 20
+    });
+
+    bullet1.tooltipText = "x={valueX}, y= {valueY}";
+
+    var series2 = chart.series.push(new am4charts.LineSeries());
+    series2.dataFields.valueX = "x";
+    series2.dataFields.valueY = "by";
+    series2.dataFields.value = "bValue";
+    series2.strokeWidth = 2;
+
+    var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+    series2.heatRules.push({
+        target: bullet2.circle,
+        min: 5,
+        max: 20
+    });
+
+    bullet2.tooltipText = "x={valueX}, y= {valueY}";
+}
+
+function chart3() {
+    am4core.useTheme(am4themes_animated);
+  // Themes end
+
+  // Create chart instance
+  var chart = am4core.create("donutChart", am4charts.PieChart);
+
+  // Add data
+  chart.data = [{
+    "country": "Lithuania",
+    "litres": 501.9
+  }, {
+    "country": "Czech Republic",
+    "litres": 301.9
+  }, {
+    "country": "Ireland",
+    "litres": 201.1
+  }, {
+    "country": "Germany",
+    "litres": 165.8
+  }, {
+    "country": "Australia",
+    "litres": 139.9
+  }, {
+    "country": "Austria",
+    "litres": 128.3
+  }, {
+    "country": "UK",
+    "litres": 99
+  }, {
+    "country": "Belgium",
+    "litres": 60
+  }, {
+    "country": "The Netherlands",
+    "litres": 50
+  }];
+
+  // Set inner radius
+  chart.innerRadius = am4core.percent(50);
+
+  // Add and configure Series
+  var pieSeries = chart.series.push(new am4charts.PieSeries());
+  pieSeries.dataFields.value = "litres";
+  pieSeries.dataFields.category = "country";
+  pieSeries.slices.template.stroke = am4core.color("#fff");
+  pieSeries.slices.template.strokeWidth = 2;
+  pieSeries.slices.template.strokeOpacity = 1;
+  pieSeries.labels.template.fill = am4core.color("#8e8da4");
+
+  // This creates initial animation
+  pieSeries.hiddenState.properties.opacity = 1;
+  pieSeries.hiddenState.properties.endAngle = -90;
+  pieSeries.hiddenState.properties.startAngle = -90;
+}
+
